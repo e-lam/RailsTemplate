@@ -1,1 +1,2 @@
-copy_file 'config/environments/production.rb', 'config/environments/staging.rb'
+copy_file destination_root.to_s + '/config/environments/production.rb', destination_root.to_s + '/config/environments/staging.rb'
+

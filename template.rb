@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/helpers'
+require File.dirname(__FILE__) + '/lib/helpers'
 
 # >----------------------------[ Initial Setup ]------------------------------<
 
@@ -7,29 +7,25 @@ Rails.application.config.generators do |g|
 end
 RUBY
 
-p self.destination_path
-
 def source_paths
   [File.expand_path(File.dirname(__FILE__))]
 end
 
 # >----------------------------[ Gems ]------------------------------<
 
-apply File.dirname(__FILE__) + '/gems.rb'
+apply File.dirname(__FILE__) + '/lib/gems.rb'
 
-insert_into_file 'Gemfile', "\nruby '2.2.0'",
-                 after: "source 'https://rubygems.org'\n"
+insert_into_file 'Gemfile', "\nruby '2.2.0'", after: "source 'https://rubygems.org'\n"
 
 # >-----------------------------[ Run Bundler ]-------------------------------<
 
-say_custom 'Bundler', "Running Bundler install. This will take a while."
+say_custom 'Bundler', 'Running Bundler install. This will take a while.'
 
 run 'bundle install'
 
 file 'Procfile', <<-CODE
 web: bundle exec rails server -p $PORT
 CODE
-
 
 # >---------------------------------[ Load all Recipes ]---------------------------------<
 
