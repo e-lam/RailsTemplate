@@ -2,15 +2,17 @@
 
 - Use Gulp with Rails Asset Pipeline
 - **Leaves Sprockets and manifest files intact** for use with gem installed assets
-- Please use Rails-assets.org for Javascript Libraries
+- Please use **Rails-assets.org** for Javascript Libraries
 - Add a staging environment
 - Use [High Voltage](https://github.com/thoughtbot/high_voltage) for static pages
 - Use Thin for default server
-- Use Simple Form
+- Use [SimpleForm](https://github.com/plataformatec/simple_form) for forms
 - Improve .gitignore 
-
+- Ruby 2.2.0
 
 ## Usage
+
+Be sure you have Rails **>= 4.2.0**
 
 ```
 rails new YOUR_PROJECT_NAME -m https://raw.githubusercontent.com/e-lam/RailsTemplate/master/template.rb
@@ -18,29 +20,29 @@ rails new YOUR_PROJECT_NAME -m https://raw.githubusercontent.com/e-lam/RailsTemp
   
 ## Rails installed Gem
 
-| Gems Name                       | Version           |
-|---------------------------------|-------------------|
-| gem 'annotate'                  |                   |
-| gem 'awesome_print'             |                   |
-| gem 'capybara'                  |                   |
-| gem 'codeclimate-test-reporter' |                   |
-| gem 'database_cleaner'          |                   |
-| gem 'factory_girl_rails'        |                   |
-| gem 'json_spec'                 |                   |
-| gem 'launchy'                   |                   |
-| gem 'pg'                        | 0.18.1            |
-| gem 'poltergeist'               |                   |
-| gem 'quiet_assets'              |                   |
-| gem 'rails_12factor'            |                   |
-| gem 'rails_best_practices'      |                   |
-| gem 'rspec-rails'               |                   |
-| gem 'shoulda-matchers'          |                   |
-| gem 'simplecov'                 |                   |
-| gem 'devise'                    |                   |
-| gem 'foreman'                   |                   |
-| gem 'high_voltage'              | ~> 2.3.0          |
-| gem 'simple_form'               |                   |
-| gem 'thin'                      |                   |
+| Gems Name                 | Version           |
+|---------------------------|-------------------|
+| annotate                  |                   |
+| awesome_print             |                   |
+| capybara                  |                   |
+| codeclimate-test-reporter |                   |
+| database_cleaner          |                   |
+| factory_girl_rails        |                   |
+| json_spec                 |                   |
+| launchy                   |                   |
+| pg                        | 0.18.1            |
+| poltergeist               |                   |
+| quiet_assets              |                   |
+| rails_12factor            |                   |
+| rails_best_practices      |                   |
+| rspec-rails               |                   |
+| shoulda-matchers          |                   |
+| simplecov                 |                   |
+| devise                    |                   |
+| foreman                   |                   |
+| high_voltage              | ~> 2.3.0          |
+| simple_form               |                   |
+| thin                      |                   |
 
 ## Gulp pre-installed Lib
 
