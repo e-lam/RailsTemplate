@@ -2,6 +2,8 @@ require File.dirname(__FILE__) + '/lib/helpers'
 
 # >----------------------------[ Initial Setup ]------------------------------<
 
+git clone: 'git@github.com:e-lam/RailsTemplate.git'
+
 initializer 'generators.rb', <<-RUBY
 Rails.application.config.generators do |g|
 end
@@ -13,9 +15,7 @@ end
 
 # >----------------------------[ Gems ]------------------------------<
 
-apply File.dirname(__FILE__) + '/lib/gems.rb'
-
-insert_into_file 'Gemfile', "\nruby '2.2.0'", after: "source 'https://rubygems.org'\n"
+apply destination_root.to_s + '/RailsTemplate/lib/gems.rb'
 
 # >-----------------------------[ Run Bundler ]-------------------------------<
 
@@ -29,7 +29,7 @@ CODE
 
 # >---------------------------------[ Load all Recipes ]---------------------------------<
 
-Dir[File.dirname(__FILE__) + '/recipes/*.rb'].each do |file|
+Dir[destination_root.to_s + '/RailsTemplate/recipes/*.rb'].each do |file|
   say_recipe File.basename(file, File.extname(file))
   apply file
 end
@@ -37,3 +37,5 @@ end
 # >---------------------------------[ Post-Recipes ]---------------------------------<
 
 rake 'db:migrate'
+
+remove_dir destination_root.to_s + '/RailsTemplate'
