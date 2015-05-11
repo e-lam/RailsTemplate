@@ -7,11 +7,12 @@ Rails.application.config.generators do |g|
 end
 RUBY
 
-require destination_root.to_s + '/lib/helpers'
+require destination_root.to_s + '/RailsTemplate/lib/helpers'
 
 
 def source_paths
-  [destination_root.to_s]
+  # File.expand_path(File.dirname(__FILE__)),
+  [destination_root.to_s + '/RailsTemplate/']
 end
 
 # >----------------------------[ Gems ]------------------------------<
