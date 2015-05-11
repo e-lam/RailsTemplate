@@ -12,10 +12,20 @@
 
 ## Usage
 
+### Installation
+
 Be sure you have Rails **>= 4.2.0**
 
 ```
-rails new YOUR_PROJECT_NAME -m https://raw.githubusercontent.com/e-lam/RailsTemplate/master/template.rb
+$ rails new YOUR_PROJECT_NAME -m https://raw.githubusercontent.com/e-lam/RailsTemplate/master/template.rb
+```
+
+### Start server
+
+To start Gulp and Rails server, please use foreman :
+
+```
+$ foreman start
 ```
   
 ## Rails installed Gem
