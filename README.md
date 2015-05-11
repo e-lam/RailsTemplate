@@ -28,7 +28,9 @@ To start Gulp and Rails server, please use foreman :
 $ foreman start
 ```
   
-## Rails installed Gem
+## Libraries
+
+### Ruby gems
 
 | Gems Name                 | Version           |
 |---------------------------|-------------------|
@@ -54,7 +56,7 @@ $ foreman start
 | simple_form               |                   |
 | thin                      |                   |
 
-## Gulp pre-installed Lib
+### Gulp
 
 | Name              | Version |
 | ----------------- | ------- |
