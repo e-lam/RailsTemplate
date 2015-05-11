@@ -1,4 +1,5 @@
 # >--------------------------------[ simple_form ]---------------------------------<
 
-generate 'simple_form:install'
-
+after_bundle do
+  generate 'simple_form:install'
+end

@@ -1,5 +1,3 @@
-require File.dirname(__FILE__) + '/lib/helpers'
-
 # >----------------------------[ Initial Setup ]------------------------------<
 
 git clone: 'git@github.com:e-lam/RailsTemplate.git'
@@ -9,19 +7,18 @@ Rails.application.config.generators do |g|
 end
 RUBY
 
+require destination_root.to_s + '/lib/helpers'
+
+
 def source_paths
-  [File.expand_path(File.dirname(__FILE__))]
+  [destination_root.to_s]
 end
 
 # >----------------------------[ Gems ]------------------------------<
 
 apply destination_root.to_s + '/RailsTemplate/lib/gems.rb'
 
-# >-----------------------------[ Run Bundler ]-------------------------------<
-
-say_custom 'Bundler', 'Running Bundler install. This will take a while.'
-
-run 'bundle install'
+# >-----------------------------[ Procfile ]-------------------------------<
 
 file 'Procfile', <<-CODE
 web: bundle exec rails server -p $PORT

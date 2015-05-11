@@ -4,4 +4,6 @@ inject_into_file "config/initializers/generators.rb", :after => "Rails.applicati
   "    g.test_framework = :rspec\n"
 end
 
-generate 'rspec:install'
+after_bundle do
+  generate 'rspec:install'
+end
