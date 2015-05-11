@@ -9,6 +9,10 @@ RUBY
 
 require destination_root.to_s + '/RailsTemplate/lib/helpers'
 
+# Add Ruby Version for rbenv
+file '.ruby-version', <<-CODE
+2.2.0
+CODE
 
 def source_paths
   # File.expand_path(File.dirname(__FILE__)),
