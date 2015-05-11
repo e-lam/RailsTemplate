@@ -1,0 +1,1 @@
+copy_file 'config/environments/production.rb', 'config/environments/staging.rb'
