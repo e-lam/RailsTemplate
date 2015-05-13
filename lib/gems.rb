@@ -1,7 +1,7 @@
 insert_into_file 'Gemfile', "\nruby '2.2.0'", after: "source 'https://rubygems.org'\n"
 
 gem 'simple_form'
-gem 'thin'
+gem 'puma'
 gem 'foreman'
 gem 'devise'
 gem 'high_voltage', '~> 2.3.0'

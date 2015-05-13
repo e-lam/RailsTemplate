@@ -26,7 +26,7 @@ apply destination_root.to_s + '/RailsTemplate/lib/gems.rb'
 # >-----------------------------[ Procfile ]-------------------------------<
 
 file 'Procfile', <<-CODE
-web: bundle exec rails server -p $PORT
+web: bundle exec puma -C config/puma.rb
 CODE
 
 # >---------------------------------[ Load all Recipes ]---------------------------------<
