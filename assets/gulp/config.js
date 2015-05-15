@@ -5,9 +5,12 @@ module.exports = {
     publicAssets: publicAssets,
     browserSync: {
         notify: false,
-        port: '3001',
-        proxy: 'localhost:3000',
-        files: ['./app/views/**']
+        port: 5001,
+        proxy: 'localhost:5000',
+        files: ['./app/views/**'],
+        ui: {
+            port: 5002
+        }
     },
     sass: {
         folder_src: sourceFiles + "/stylesheets/src/**/*.scss",
