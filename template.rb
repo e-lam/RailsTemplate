@@ -29,6 +29,13 @@ file 'Procfile', <<-CODE
 web: bundle exec puma -C config/puma.rb
 CODE
 
+# >-----------------------------[ Buildpacks 4 Heroku ]-------------------------------<
+
+file '.buildpacks', <<-CODE
+https://github.com/heroku/heroku-buildpack-nodejs.git
+https://github.com/heroku/heroku-buildpack-ruby.git
+CODE
+
 # >---------------------------------[ Load all Recipes ]---------------------------------<
 
 Dir[destination_root.to_s + '/RailsTemplate/recipes/*.rb'].each do |file|
