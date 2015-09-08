@@ -1,14 +1,15 @@
 # RailsTemplate
 
-- Use pre-configured Gulp with Rails Asset Pipeline
-- **Leaves Sprockets** for use with gem installed assets
-- Recommendation : Use **Rails-assets.org** for Javascript Libraries
+- Use pre-configured Gulp to replace Rails Asset Pipeline. 
+- Use NPM for JS & CSS dependencies
+- Setup JS & CSS env
 - Use Puma for default server
 - Add a staging environment
 - Use [High Voltage](https://github.com/thoughtbot/high_voltage) for static pages
 - Use [SimpleForm](https://github.com/plataformatec/simple_form) for forms
 - Improve .gitignore 
 - Ruby 2.2.0
+- Use brakeman & bundler-audit for security checks
 
 ## Usage
 

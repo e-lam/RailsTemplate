@@ -1,4 +1,11 @@
-var gulp         = require('gulp');
-//var gulpSequence = require('gulp-sequence');
+var gulp        = require('gulp');
+var runSequence = require('run-sequence');
 
-gulp.task('build', ['sass']);
+gulp.task('build', function(callback){
+  runSequence(
+    'clean-all',
+    'iconfont',
+    'rev-all',
+    callback
+  )
+});
