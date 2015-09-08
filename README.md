@@ -59,16 +59,10 @@ $ foreman start
 
 ### Gulp
 
-| Name              | Version |
-| ----------------- | ------- |
-| browser-sync      | ^2.6.9  |
-| del               | ^1.1.1  |
-| gulp              | ^3.8.11 |
-| gulp-autoprefixer | ^2.2.0  |
-| gulp-csso         | ^1.0.0  |
-| gulp-rename       | ^1.2.2  |
-| gulp-replace      | ^0.5.3  |
-| gulp-sass         | ^1.3.3  |
-| gulp-sequence     | ^0.3.2  |
-| gulp-util         | ^3.0.4  |
-| require-dir       | ^0.3.0  |
+#### Basic installation
+
+[Read gulp.rb](recipes/gulp.rb)
+
+#### Add yours
+
+Use NPM to add dependencies to your project

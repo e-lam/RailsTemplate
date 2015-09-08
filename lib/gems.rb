@@ -11,6 +11,8 @@ gem_group :development, :test do
   gem 'annotate'
   gem 'quiet_assets'
   gem 'awesome_print'
+  gem 'brakeman'
+  gem 'bundler-audit'
 end
 
 gem_group :test do
