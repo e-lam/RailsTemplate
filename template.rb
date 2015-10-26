@@ -29,13 +29,6 @@ file 'Procfile', <<-BASH
 web: bundle exec puma -C config/puma.rb
 BASH
 
-# >-----------------------------[ Rakefile ]-------------------------------<
-
-append_to_file 'Rakefile', <<-RUBY
-require 'seedbank'
-Seedbank.load_tasks if defined?(Seedbank)
-RUBY
-
 # >-----------------------------[ Buildpacks 4 Heroku ]-------------------------------<
 
 file '.buildpacks', <<-BASH
