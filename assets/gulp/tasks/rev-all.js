@@ -1,8 +1,9 @@
-var gulp   = require('gulp');
-var RevAll = require('gulp-rev-all');
-var config = require('../config');
+var gulp    = require('gulp');
+var RevAll  = require('gulp-rev-all');
+var config  = require('../config');
+var gzip    = require('gulp-gzip');
 
-// TODO : To Deploy on CDN
+// TODO : For CDN
 //var awspublish = require('gulp-awspublish');
 //var cloudfront = require('gulp-cloudfront');
 //
@@ -26,16 +27,8 @@ var config = require('../config');
 //        .pipe(cloudfront(aws));
 //
 
-function revPath(path){
-  var revAll = new RevAll(config.revAll.options);
-  return gulp.src(path)
-    .pipe(gulp.dest(config.publicAssets))
-    .pipe(revAll.revision())
-    .pipe(gulp.dest(config.publicAssets));
-}
-
 gulp.task('rev-all', ['styles-all', 'scripts', 'images'], function () {
-  var revAll = new RevAll(config.revAll.options);
+  var revAll = new RevAll();
   return gulp.src([
     config.revAll.image_paths,
     config.revAll.styles_paths,
@@ -45,24 +38,10 @@ gulp.task('rev-all', ['styles-all', 'scripts', 'images'], function () {
     .pipe(gulp.dest(config.publicAssets))
     .pipe(revAll.revision())
     .pipe(gulp.dest(config.publicAssets))
+    .pipe(gzip())
+    .pipe(gulp.dest(config.publicAssets))
     .pipe(revAll.versionFile())
     .pipe(gulp.dest(config.publicAssets))
     .pipe(revAll.manifestFile())
     .pipe(gulp.dest(config.publicAssets));
-});
-
-gulp.task('rev-images', ['images'], function(){
-  return revPath(config.revAll.image_paths);
-});
-
-gulp.task('rev-styles', ['styles-all'], function(){
-  return revPath(config.revAll.styles_paths);
-});
-
-gulp.task('rev-scripts', ['scripts'], function(){
-  return revPath(config.revAll.scripts_paths);
-});
-
-gulp.task('rev-iconFont', ['iconfont'], function(){
-  return revPath(config.revAll.icon_font_paths);
 });

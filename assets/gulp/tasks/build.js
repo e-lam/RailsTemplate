@@ -1,11 +1,12 @@
-var gulp        = require('gulp');
+var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
-gulp.task('build', function(callback){
+gulp.task('build', function (callback) {
+  var ENV = process.env.RAILS_ENV;
   runSequence(
-    'clean-all',
-    'iconfont',
-    'rev-all',
-    callback
+      (ENV === 'production' || ENV === 'staging') ? 'noop': 'clean-all',
+      'iconFont',
+      (ENV === 'production' || ENV === 'staging') ? 'rev-all' : 'move-all',
+      callback
   )
 });

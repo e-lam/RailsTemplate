@@ -7,7 +7,6 @@ var replace                 = require('gulp-replace');
 var rename                  = require('gulp-rename');
 var gutil                   = require('gulp-util');
 var csso                    = require('gulp-csso');
-var createDirectoryIfNeeded = require('./utils').createDirectoryIfNeeded;
 var plumber                 = require('gulp-plumber');
 var notify                  = require('gulp-notify');
 var concat                  = require('gulp-concat');
@@ -17,8 +16,6 @@ var utils                   = require('./utils');
 
 // Handle Default Syles
 gulp.task('styles', function () {
-  createDirectoryIfNeeded(config.src);
-
   return gulp.src(config.main_src)
     .pipe(plumber({
       errorHandler: notify.onError('SASS Error: <%= error.message %>')
@@ -34,7 +31,7 @@ gulp.task('vendor-styles-before', function() {
   // Create empty Style files to avoid Sass Errors
   utils.createEmptyFile(config_vendor.dest + '_vendor-before.scss');
 
-  gulp.src(config_vendor.load_before)
+  return gulp.src(config_vendor.load_before)
     .pipe(plumber({
       errorHandler: notify.onError('Vendor CSS Error: <%= error.message %>')
     }))
@@ -47,7 +44,7 @@ gulp.task('vendor-styles-after', function() {
   // Create empty Style files to avoid Sass Errors
   utils.createEmptyFile(config_vendor.dest + '_vendor-after.scss');
 
-  gulp.src(config_vendor.load_after)
+  return gulp.src(config_vendor.load_after)
     .pipe(plumber({
       errorHandler: notify.onError('Vendor CSS Error: <%= error.message %>')
     }))

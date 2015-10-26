@@ -1,6 +1,5 @@
 var gulp                    = require('gulp');
 var fs                      = require('fs');
-var extfs                   = require('extfs');
 var iconfont                = require('gulp-iconfont');
 var iconfontCss             = require('gulp-iconfont-css');
 var browserSync             = require('browser-sync').create();
@@ -9,12 +8,8 @@ var utils                   = require('./utils')
 var plumber                 = require('gulp-plumber');
 var notify                  = require('gulp-notify');
 
-gulp.task('iconfont', function() {
-  // Create Src / Dest directory if they don't exist, to avoid confusion
-  utils.createDirectoryIfNeeded(config.src);
-  utils.createDirectoryIfNeeded(config.template_dest_folder);
-
-  if (!extfs.isEmptySync(config.src)){
+gulp.task('iconFont', function() {
+  if (utils.checkDirectoryForExt(config.src, '.svg')){
     console.info('Creating iconFont from source SVGS...')
     return gulp.src(config.folder_src)
       .pipe(plumber({
@@ -39,5 +34,4 @@ gulp.task('iconfont', function() {
     console.info('IconFont source folder is empty, skipping iconFont creation...')
     utils.createEmptyFile(config.template_dest_abs);
   }
-
 });

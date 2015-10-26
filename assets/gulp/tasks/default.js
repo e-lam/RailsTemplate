@@ -1,3 +1,3 @@
 var gulp = require('gulp');
 
-gulp.task('default', ['build', 'watch', 'browserSync']);
+gulp.task('default', ['clean-all', 'build', 'watch', 'browserSync']);
