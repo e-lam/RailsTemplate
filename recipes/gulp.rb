@@ -66,8 +66,8 @@ file 'app/assets/stylesheets/src/main.scss', <<-CSS
 // Puts you CSS HERE
 CSS
 
-removefile 'app/assets/stylesheets/application.css'
-removefile 'app/assets/javascripts/application.js'
+remove_file 'app/assets/stylesheets/application.css'
+remove_file 'app/assets/javascripts/application.js'
 
 gsub_file 'config/environments/development.rb', 'config.assets.digest = true', 'config.assets.digest = false'
 
@@ -75,7 +75,8 @@ append_file 'Procfile', <<-CODE
 gulp: gulp
 CODE
 
-inject_into_file 'app/helpers/application_helper.rb', before: 'end' do <<-'RUBY'
+inject_into_file 'app/helpers/application_helper.rb', before: 'end' do
+  <<-'RUBY'
   def gulp_asset_path(path)
     if defined?(REV_MANIFEST) && !Rails.env.development?
       "#{ENV['CDN_URL']}/assets/#{REV_MANIFEST[path]}"
@@ -84,7 +85,7 @@ inject_into_file 'app/helpers/application_helper.rb', before: 'end' do <<-'RUBY'
     end
   end
 
-RUBY
+  RUBY
 end
 
 file 'app/views/layouts/application.html.erb', <<-HTML
