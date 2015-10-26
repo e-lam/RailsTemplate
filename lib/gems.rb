@@ -1,4 +1,4 @@
-insert_into_file 'Gemfile', "\nruby '2.2.0'", after: "source 'https://rubygems.org'\n"
+insert_into_file 'Gemfile', "\nruby '2.2.3'", after: "source 'https://rubygems.org'\n"
 
 gem 'simple_form'
 gem 'puma'
