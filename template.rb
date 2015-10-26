@@ -25,16 +25,23 @@ apply destination_root.to_s + '/RailsTemplate/lib/gems.rb'
 
 # >-----------------------------[ Procfile ]-------------------------------<
 
-file 'Procfile', <<-CODE
+file 'Procfile', <<-BASH
 web: bundle exec puma -C config/puma.rb
-CODE
+BASH
+
+# >-----------------------------[ Rakefile ]-------------------------------<
+
+append_to_file 'Rakefile', <<-RUBY
+require 'seedbank'
+Seedbank.load_tasks if defined?(Seedbank)
+RUBY
 
 # >-----------------------------[ Buildpacks 4 Heroku ]-------------------------------<
 
-file '.buildpacks', <<-CODE
+file '.buildpacks', <<-BASH
 https://github.com/heroku/heroku-buildpack-nodejs.git
 https://github.com/heroku/heroku-buildpack-ruby.git
-CODE
+BASH
 
 # >---------------------------------[ Load all Recipes ]---------------------------------<
 

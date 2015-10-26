@@ -53,6 +53,7 @@ $ foreman start
 | rails_12factor            |                   |
 | rails_best_practices      |                   |
 | rspec-rails               |                   |
+| seedbank                  |                   |
 | shoulda-matchers          |                   |
 | simple_form               |                   |
 | simplecov                 |                   |

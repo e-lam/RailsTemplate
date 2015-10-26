@@ -5,6 +5,7 @@ gem 'puma'
 gem 'foreman'
 gem 'devise'
 gem 'high_voltage', '~> 2.3.0'
+gem 'seedbank'
 
 gem_group :development, :test do
   gem 'rspec-rails'
