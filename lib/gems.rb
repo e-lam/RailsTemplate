@@ -14,6 +14,7 @@ gem_group :development, :test do
   gem 'awesome_print'
   gem 'brakeman'
   gem 'bundler-audit'
+  gem 'bullet'
 end
 
 gem_group :test do

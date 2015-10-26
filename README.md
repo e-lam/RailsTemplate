@@ -37,6 +37,7 @@ $ foreman start
 |---------------------------|-------------------|
 | annotate                  |                   |
 | awesome_print             |                   |
+| bullet                    |                   |
 | capybara                  |                   |
 | codeclimate-test-reporter |                   |
 | database_cleaner          |                   |
