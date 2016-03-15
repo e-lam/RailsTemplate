@@ -1,11 +1,23 @@
 insert_into_file 'Gemfile', "\nruby '2.2.0'", after: "source 'https://rubygems.org'\n"
 
-gem 'simple_form'
-gem 'puma'
-gem 'foreman'
-gem 'devise'
+gem 'simple_form', '~> 3.2.1'
+
+gem 'puma', '~> 2.11.3'
+gem 'foreman', '~> 0.78.0'
+
+gem 'browser', '~> 1.1'
+
+gem 'devise', '~> 3.5.6'
 gem 'high_voltage', '~> 2.3.0'
+
 gem 'seedbank'
+
+gem 'recipient_interceptor'
+gem 'pundit', '1.1.0'
+
+gem_group :development do
+  gem 'letter_opener'
+end
 
 gem_group :development, :test do
   gem 'rspec-rails'
