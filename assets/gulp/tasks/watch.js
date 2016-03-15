@@ -1,36 +1,34 @@
-var gulp        = require('gulp');
-var config      = require('../config');
-var browserSync = require('browser-sync');
-var reload      = browserSync.reload;
-var watch       = require('gulp-watch');
+var gulp         = require('gulp');
+var config       = require('../config');
+var browserSync  = require('browser-sync');
+var watch        = require('gulp-watch');
+var reload       = browserSync.reload;
 
+gulp.task('watch', function () {
 
-
-gulp.task('watch', function (callback) {
-  // Watch Sass Files
-  watch([config.styles.folder_src, '!' + config.vendor_css.dest + '**/**'], function() {
+  watch(config.styles.files_src, function() {
     gulp.start('move-styles');
+    reload();
   });
 
-  // Watch JS Files
-  watch(config.scripts.folder_src, function() {
-    gulp.start('move-scripts');
-  });
-
-  // Watch Images Files
-  watch(config.images.folder_src, function() {
+  watch(config.images.files_src, function() {
     gulp.start('move-images');
     reload();
   });
 
-  // Watch IconFont Files
-  watch(config.iconFont.folder_src, function() {
-    gulp.start('move-iconFont');
+  watch(config.svgstore.files_src_svg_sprites, function(){
+    gulp.start('svgstore');
     reload();
   });
 
-  // Watch Templates Files
-  watch(config.templates.folder_src, function() {
+  watch(config.scripts.files_src, function() {
+    gulp.start('move-scripts');
     reload();
-  })
+  });
+
+  watch(config.fonts.src, function() {
+    gulp.start('fonts');
+    reload();
+  });
+
 });

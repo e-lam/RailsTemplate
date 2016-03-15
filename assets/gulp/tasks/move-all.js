@@ -2,7 +2,7 @@ var gulp    = require('gulp');
 var config  = require('../config');
 var replace = require('gulp-replace');
 
-gulp.task('move-all', ['move-styles', 'move-scripts', 'move-images', 'move-iconFont']);
+gulp.task('move-all', ['move-styles', 'move-scripts', 'move-images']);
 
 gulp.task('move-styles', ['styles'], function() {
   return gulp.src(config.styles.dest + '**/**')
@@ -17,10 +17,5 @@ gulp.task('move-scripts', ['scripts'], function() {
 
 gulp.task('move-images', ['images'], function() {
   return gulp.src(config.images.dest + '**/**')
-    .pipe(gulp.dest(config.publicAssets));
-});
-
-gulp.task('move-iconFont', ['iconFont'], function() {
-  return gulp.src(config.iconFont.dest + '**/**')
     .pipe(gulp.dest(config.publicAssets));
 });

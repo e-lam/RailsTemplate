@@ -27,14 +27,14 @@ var gzip    = require('gulp-gzip');
 //        .pipe(cloudfront(aws));
 //
 
-gulp.task('rev-all', ['styles-all', 'scripts', 'images'], function () {
+gulp.task('rev-all', function () {
   var revAll = new RevAll();
   return gulp.src([
-    config.revAll.image_paths,
-    config.revAll.styles_paths,
-    config.revAll.scripts_paths,
-    config.revAll.icon_font_paths
-  ])
+      config.revAll.image_paths,
+      config.revAll.styles_paths,
+      config.revAll.scripts_paths,
+      config.revAll.icon_font_paths
+    ])
     .pipe(gulp.dest(config.publicAssets))
     .pipe(revAll.revision())
     .pipe(gulp.dest(config.publicAssets))

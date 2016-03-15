@@ -1,39 +1,30 @@
-var gulp                    = require('gulp');
-var config                  = require('../config').scripts;
-var browserify              = require('browserify');
-var notify                  = require('gulp-notify');
-var source                  = require('vinyl-source-stream');
-var watchify                = require('watchify');
-var _assign                 = require('lodash/object/assign');
-var gutil                   = require('gulp-util');
-var uglify                  = require('gulp-uglify');
-var streamify               = require('gulp-streamify');
+var gulp = require('gulp');
+var config = require('../config').scripts;
+var shell = require('gulp-shell');
+var browserify = require('gulp-browserify');
 
-var ENV = process.env.RAILS_ENV;
+// Regular scripts tasks. Take the scripts, do some browserify magic.
+gulp.task('scripts', function () {
+    var ENV = process.env.RAILS_ENV;
+    gulp.src([config.main_src])
+      .pipe(browserify({
+        insertGlobals: true,
+        debug: !(ENV === 'production' || ENV === 'staging'),
+        transform: ["babelify"],
+        shim: {
+          "jquery": {
+            path: './node_modules/jquery/dist/jquery.js',
+            exports: '$'
+          }
+        }
+      }))
+      .pipe(gulp.dest(config.dest))
+  }
+);
 
-var browserifyOptions = {
-  entries: config.main_src,
-  debug: ENV === 'production' ? false : true,
-  paths: ['./node_modules', config.src, config.casting_src]
-}
-
-if(ENV === 'production' || ENV === 'staging'){
-  var b = browserify(browserifyOptions);
-} else {
-  var watchifiedOptions = _assign({}, watchify.args, browserifyOptions);
-  var b = watchify(browserify(watchifiedOptions));
-  b.on('update', bundle);
-}
-
-function bundle(){
-  return b.bundle()
-  .on('error', notify.onError({
-    title: "Browserify Error",
-    message: "<%= error.message %>"
-  }))
-  .pipe(source('main.js'))
-  .pipe(ENV === 'production' ? streamify(uglify()) : gutil.noop())
-  .pipe(gulp.dest(config.dest));
-}
-
-gulp.task('scripts', bundle);
+// Watchify script task. Like the script task, but cache the browserified bundle using watchify for faster build times.
+gulp.task('scripts-watchify', shell.task([
+  'mkdir -p ' + config.dest,
+  'touch ' + config.main_dest,
+  'watchify ' + config.main_src + ' -o ' + config.main_dest + ' -v -d'
+]));
