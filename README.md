@@ -58,6 +58,10 @@ $ foreman start
 | shoulda-matchers          |                   |
 | simple_form               |                   |
 | simplecov                 |                   |
+| Browser                   |                   |
+| recipient_interceptor     |                   |
+| pundit                    |                   |
+| letter_opener             |                   |
 
 ### Gulp
 
