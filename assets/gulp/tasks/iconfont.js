@@ -4,7 +4,7 @@ var iconfont                = require('gulp-iconfont');
 var iconfontCss             = require('gulp-iconfont-css');
 var browserSync             = require('browser-sync').create();
 var config                  = require('../config').iconFont;
-var utils                   = require('./utils')
+var utils                   = require('./utils');
 var plumber                 = require('gulp-plumber');
 var notify                  = require('gulp-notify');
 

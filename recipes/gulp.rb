@@ -60,6 +60,8 @@ file 'package.json', <<-JSON
     "gulp-imagemin": "^2.4.0",
     "gulp-notify": "^2.2.0",
     "gulp-rev-all": "^0.8.21",
+    "gulp-iconfont": "^4.0.1",
+    "gulp-iconfont-css": "^1.0.1",
     "gulp-gzip": "^1.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.1.1",

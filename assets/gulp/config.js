@@ -49,6 +49,23 @@ module.exports = {
     dest: appSource + '/images/dist/'
   },
 
+  iconFont: {
+    src: appSource + '/iconFont/src',
+    folder_src: appSource + '/iconFont/src/*.svg',
+    dest: appSource + '/iconFont/dist/',
+    template_src: appSource + '/stylesheets/src/tools/_template-font-custom.scss',
+    template_dest_rel: '/../../stylesheets/src/components/_icons.scss',
+    template_dest_abs: appSource + '/stylesheets/src/components/_icons.scss',
+    template_dest_folder: appSource + '/stylesheets/src/components',
+    font_src: '',
+    settings: {
+      fontName: 'assets-icons',
+      appendCodepoints: true,
+      normalize: true,
+      fontHeight: 512
+    }
+  },
+
   svgstore: {
     files_src_svg_sprites: appSource + '/images/src/sprite/*.svg',
     dest: appSource + '/images/src'
