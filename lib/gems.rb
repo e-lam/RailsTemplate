@@ -43,7 +43,7 @@ gem_group :test do
   gem 'codeclimate-test-reporter', require: nil
 end
 
-gem_group :production do
+gem_group :production, :staging do
   # For Rails 4 deployment on Heroku
   gem 'rails_12factor'
   gem 'pg', '0.18.1'
