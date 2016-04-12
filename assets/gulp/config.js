@@ -72,8 +72,8 @@ module.exports = {
   },
 
   fonts: {
-    src: appSource + '/assets/fonts/**',
-    dest: appSource + '/assets/fonts'
+    src: appSource + '/fonts/**',
+    dest: publicAssets
   }
 
 };
