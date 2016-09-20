@@ -17,6 +17,7 @@ gem 'pundit', '1.1.0'
 
 gem_group :development do
   gem 'letter_opener'
+  gem 'rubocop'
 end
 
 gem_group :development, :test do
