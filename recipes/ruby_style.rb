@@ -56,7 +56,7 @@ Style/BarePercentLiterals:
   - bare_percent
 Style/BracesAroundHashParameters:
   Description: Enforce braces style around hash parameters.
-  Enabled: true
+  Enabled: false
   EnforcedStyle: no_braces
   SupportedStyles:
   - braces
@@ -122,14 +122,14 @@ Style/EmptyLineBetweenDefs:
   AllowAdjacentOneLineDefs: false
 Style/EmptyLinesAroundBlockBody:
   Description: Keeps track of empty lines around block bodies.
-  Enabled: true
+  Enabled: false
   EnforcedStyle: no_empty_lines
   SupportedStyles:
   - empty_lines
   - no_empty_lines
 Style/EmptyLinesAroundClassBody:
   Description: Keeps track of empty lines around class bodies.
-  Enabled: true
+  Enabled: false
   EnforcedStyle: no_empty_lines
   SupportedStyles:
   - empty_lines
@@ -386,7 +386,7 @@ Style/SpaceAroundEqualsInParameterDefault:
   Description: Checks that the equals signs in parameter default assignments have
     or don't have surrounding space depending on configuration.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#spaces-around-equals
-  Enabled: true
+  Enabled: false
   EnforcedStyle: space
   SupportedStyles:
   - space
@@ -409,10 +409,12 @@ Style/SpaceInsideBlockBraces:
   - no_space
   EnforcedStyleForEmptyBraces: no_space
   SpaceBeforeBlockParameters: true
+Style/EmptyLinesAroundBody:
+  Enabled: false
 Style/SpaceInsideHashLiteralBraces:
   Description: Use spaces inside hash literal braces - or don't.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#spaces-operators
-  Enabled: true
+  Enabled: false
   EnforcedStyle: space
   EnforcedStyleForEmptyBraces: no_space
   SupportedStyles:
@@ -651,7 +653,7 @@ Style/BlockDelimiters:
   Description: Avoid using {...} for multi-line blocks (multiline chaining is always
     ugly). Prefer {...} over do...end for single-line blocks.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#single-line-blocks
-  Enabled: true
+  Enabled: false
 Style/CaseEquality:
   Description: Avoid explicit use of the case equality operator(===).
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-case-equality
