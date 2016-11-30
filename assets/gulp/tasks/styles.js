@@ -8,8 +8,8 @@ var notify       = require('gulp-notify');
 var sourcemaps   = require('gulp-sourcemaps');
 
 function createNormalizeScss() {
-  gulp.src(config.file_normalize_css)
-    .pipe(gulp.dest(config.file_normalize_scss));
+  fs.createReadStream(config.file_normalize_css)
+    .pipe(fs.createWriteStream(config.file_normalize_scss));
 }
 
 gulp.task('normalize', function() {
